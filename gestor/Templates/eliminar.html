@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Mascota</title>
+</head>
+<body>
+    <h1>¿Seguro que quieres eliminar esta mascota?</h1>
+    <p>{{ mascota.nombre }} - {{ mascota.especie }} - {{ mascota.edad }} años</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+        <a href="{% url 'listar_mascotas' %}">Cancelar</a>
+    </form>
+</body>
+</html>

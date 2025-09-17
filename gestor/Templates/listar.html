@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Mascotas</title>
+</head>
+<body>
+    <h1>Listado de Mascotas</h1>
+    <a href="{% url 'crear_mascota' %}">➕ Nueva Mascota</a>
+    <ul>
+        {% for mascota in mascotas %}
+            <li>
+                {{ mascota.nombre }} - {{ mascota.especie }} - {{ mascota.edad }} años
+                <a href="{% url 'editar_mascota' mascota.id %}">✏️ Editar</a>
+                <a href="{% url 'eliminar_mascota' mascota.id %}">🗑️ Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay mascotas registradas</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
